@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartClean - Garbage Route Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>🚛 SmartClean</h1>
+    <p>City Garbage Collection Route Optimizer</p>
+</header>
+
+<div class="container">
+
+    <section class="card">
+        <h2>🗑️ Add Garbage Collection Point</h2>
+
+        <input type="text" id="binName" placeholder="Bin Name (Example: Bin A)">
+        
+        <input type="number" id="fillLevel"
+               placeholder="Garbage Level (%)" min="0" max="100">
+
+        <input type="number" id="distance"
+               placeholder="Distance from previous point (km)" min="0">
+
+        <button onclick="addBin()">Add Bin</button>
+    </section>
+
+
+    <section class="card">
+        <h2>📍 Collection Points</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Bin</th>
+                    <th>Garbage</th>
+                    <th>Priority</th>
+                    <th>Distance</th>
+                </tr>
+            </thead>
+
+            <tbody id="binTable">
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="card">
+        <h2>🚛 Route Optimization</h2>
+
+    <div class="city-map">
+
+        <div class="location depot">🏢<br>Depot</div>
+
+        <div class="road road1"></div>
+        <div class="road road2"></div>
+        <div class="road road3"></div>
+        <div class="road road4"></div>
+        <div class="road road5"></div>
+
+        <div class="location bin-a">🗑️<br>Bin A</div>
+        <div class="location bin-b">🗑️<br>Bin B</div>
+        <div class="location bin-c">🗑️<br>Bin C</div>
+        <div class="location bin-d">🗑️<br>Bin D</div>
+        <div class="location bin-e">🗑️<br>Bin E</div>
+
+    </div>
+</section>
+
+        <button class="optimize" onclick="optimizeRoute()">
+            ⚡ Generate Optimized Route
+        </button>
+
+        <div id="routeResult">
+            Add garbage points and generate the route.
+        </div>
+    </section>
+
+
+    <section class="stats">
+
+        <div class="stat">
+            <h3>📏 Distance</h3>
+            <p id="totalDistance">0 km</p>
+        </div>
+
+        <div class="stat">
+            <h3>⏱️ Time</h3>
+            <p id="totalTime">0 min</p>
+        </div>
+
+        <div class="stat">
+            <h3>⛽ Fuel</h3>
+            <p id="fuel">0 L</p>
+        </div>
+
+        <div class="stat">
+            <h3>🗑️ Bins</h3>
+            <p id="totalBins">0</p>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>DAA Hackathon 2026 | SmartClean</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
